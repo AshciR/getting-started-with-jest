@@ -1,7 +1,4 @@
-const filterByTerm = (inputArr, searchTerm) => {
-    const regex = RegExp(searchTerm, "i");
-    return inputArr.filter(it => it.url.match(regex));
-}
+const filterByTerm = require("../src/filterByTerm");
 
 describe("Filter function", () => {
 
@@ -28,9 +25,9 @@ describe("Filter function", () => {
             { id: 3, url: "https://www.link3.dev" }
         ];
 
-        const output = [...input];
+        const output = [];
 
-        expect(filterByTerm(input, "")).toEqual(output)
+        expect(filterByTerm(input, " ")).toEqual(output)
     });
 
 });
