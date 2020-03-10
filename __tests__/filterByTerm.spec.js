@@ -1,4 +1,7 @@
-const filterByTerm = (inputArr, searchTerm) => inputArr.filter(it => it.url.match(searchTerm));
+const filterByTerm = (inputArr, searchTerm) => {
+    const regex = RegExp(searchTerm, "i");
+    return inputArr.filter(it => it.url.match(regex));
+}
 
 describe("Filter function", () => {
 
@@ -13,6 +16,7 @@ describe("Filter function", () => {
         const output = [{ id: 3, url: "https://www.link3.dev" }];
 
         expect(filterByTerm(input, "link")).toEqual(output)
+        expect(filterByTerm(input, "LINK")).toEqual(output)
 
     });
 
