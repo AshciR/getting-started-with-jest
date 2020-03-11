@@ -30,4 +30,12 @@ describe("Filter function", () => {
         expect(filterByTerm(input, " ")).toEqual(output)
     });
 
+    test("it should throw and error if inputArr is empty", () => {
+        expect(() => filterByTerm([], "link")).toThrow(Error);
+    });
+
+    test("it should throw and error if searchTerm is empty", () => {
+        expect(() => filterByTerm(["a", "b", "c"], "") ).toThrow(Error);
+    });
+
 });
